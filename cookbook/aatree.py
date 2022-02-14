@@ -10,7 +10,7 @@ class AANode:
     def is_root(self):
         return self.parent is None
     
-    def skew(self):
+    def skew(self) -> 'AANode':
         r"""Check the right-horizontal-only invariant. Perform the skew operation if the
         invariant is violated.
 
@@ -39,7 +39,7 @@ class AANode:
         return self.parent
 
 
-    def split(self):
+    def split(self) -> 'AANode':
         r"""Check the grandchild level invariant. Perform the split operation if the
         invariant is violated. Increment the level of the right child.
 
@@ -86,7 +86,7 @@ class AANode:
         
         return 1 + max(left_level, right_level)
 
-    def insert(self, value: float):
+    def insert(self, value: float) -> 'AANode':
         if value <= self.value:
             if self.left is None:
                 self.left = AANode(value, parent=self)
@@ -102,7 +102,7 @@ class AANode:
 
         return self.split()
     
-    def __str__(self):
+    def __str__(self) -> str:
         self_str = f'{self.left.value if self.left else ""} <- {self.value} -> {self.right.value if self.right else ""}'
         
         if self.left:
