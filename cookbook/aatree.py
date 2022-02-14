@@ -75,16 +75,16 @@ class AANode:
 
         return self.parent
     
-    def compute_level(self, level: int = 0) -> int:
-        left_level = level
-        right_level = level
+    def compute_level(self) -> int:
+        left_level = 0
+        right_level = 0
 
         if self.left:
-            left_level = self.left.compute_level(level + 1)
+            left_level = self.left.compute_level()
         if self.right:
-            right_level = self.right.compute_level(level + 1)
+            right_level = self.right.compute_level()
         
-        return max(left_level, right_level)
+        return 1 + max(left_level, right_level)
 
     def insert(self, value: float):
         if value <= self.value:
@@ -143,7 +143,7 @@ class AATree:
 def main():
     tree = AATree()
 
-    for num in list(range(10000)):
+    for num in list(range(100)):
         tree.insert(num)
     
     print(tree.compute_level())
