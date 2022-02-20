@@ -85,6 +85,12 @@ class AANode:
             right_level = self.right.compute_level()
         
         return 1 + max(left_level, right_level)
+    
+    def compute_imbalance(self) -> int:
+        left_level = self.left.compute_level() if self.left else 0
+        right_level = self.right.compute_level() if self.right else 0
+
+        return abs(left_level - right_level)
 
     def insert(self, value: float) -> 'AANode':
         if value <= self.value:
@@ -136,6 +142,12 @@ class AATree:
 
         return 0
     
+    def compute_imbalance(self) -> int:
+        if self.root:
+            return self.root.compute_imbalance()
+        
+        return 0
+    
     def __str__(self):
         return str(self.root)
         
@@ -143,10 +155,10 @@ class AATree:
 def main():
     tree = AATree()
 
-    for num in list(range(100)):
+    for num in range(10000):
         tree.insert(num)
     
-    print(tree.compute_level())
+    print(tree.compute_imbalance())
 
 
 if __name__ == '__main__':
