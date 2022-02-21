@@ -63,7 +63,7 @@ def paint_house2(costs: List[List[int]]) -> int:
 
         for color_idx in range(num_k):
             new_cost = costs[house_idx][color_idx]            
-            new_cost += min_first[0] if color_idx == min_second[1] else min_second[0]
+            new_cost += min_second[0] if color_idx == min_first[1] else min_first[0]
             new_min_costs.append((new_cost, color_idx))
         
         heapq.heapify(new_min_costs)
