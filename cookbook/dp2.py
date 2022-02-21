@@ -1,6 +1,7 @@
 # Hard DP questions.
 
 from typing import List
+import heapq
 import random
 
 
@@ -49,20 +50,27 @@ def paint_fence(n: int, k: int) -> int:
 
 def paint_house2(costs: List[List[int]]) -> int:
     # Set up state: min cost of painting the last house with the kth color.
-    min_last_costs = costs[0]
+    num_k = len(costs[0])
+    min_last_costs = [(costs[0][color_idx], color_idx) for color_idx in range(num_k)]
+    
+    heapq.heapify(min_last_costs)
+    min_first = heapq.heappop(min_last_costs)
+    min_second = heapq.heappop(min_last_costs)
 
     # Transition equation.
-    for idx1 in range(1, len(costs)):
+    for house_idx in range(1, len(costs)):
         new_min_costs = []
 
-        for idx2 in range(len(costs[idx1])):
-            new_cost = costs[idx1][idx2]
-            new_cost += min(x for idx, x in enumerate(min_last_costs) if idx != idx2)
-            new_min_costs.append(new_cost)
+        for color_idx in range(num_k):
+            new_cost = costs[house_idx][color_idx]            
+            new_cost += min_first[0] if color_idx == min_second[1] else min_second[0]
+            new_min_costs.append((new_cost, color_idx))
         
-        min_last_costs = new_min_costs
+        heapq.heapify(new_min_costs)
+        min_first = heapq.heappop(new_min_costs)
+        min_second = heapq.heappop(new_min_costs)
     
-    return min(min_last_costs)
+    return min_first[0]
 
 
 def main():
