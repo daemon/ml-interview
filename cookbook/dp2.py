@@ -33,8 +33,7 @@ def longest_valid_parentheses(string: str) -> int:
 
 
 def main():
-    a = ['(', ')']
-    rand_str = ''.join(a[random.randint(0, 1)] for _ in range(10))
+    rand_str = ''.join('()'[random.randint(0, 1)] for _ in range(10))
 
     print(rand_str)
     print(longest_valid_parentheses(rand_str))
