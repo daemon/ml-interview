@@ -73,6 +73,32 @@ def paint_house2(costs: List[List[int]]) -> int:
     return min_first[0]
 
 
+def edit_distance(str1: str, str2: str) -> int:
+    # Set up state.
+    A = [[0] * (len(str2) + 1) for _ in range(len(str1) + 1)]
+    
+    for idx in range(len(str1) + 1):
+        A[idx][0] = idx
+    
+    for idx in range(len(str2) + 1):
+        A[0][idx] = idx
+
+    # Transition equation.
+    for idx1 in range(1, len(str1) + 1):
+        si = idx1 - 1
+
+        for idx2 in range(1, len(str2) + 1):
+            sj = idx2 - 1
+
+            sub_dist = int(str1[si] != str2[sj]) + A[idx1 - 1][idx2 - 1]
+            rm_dist = A[idx1][idx2 - 1] + 1
+            add_dist = A[idx1 - 1][idx2] + 1
+
+            A[idx1][idx2] = min(sub_dist, rm_dist, add_dist)
+    
+    return A[len(str1)][len(str2)]
+
+
 def main():
     rand_str = ''.join('()'[random.randint(0, 1)] for _ in range(10))
 
@@ -82,6 +108,8 @@ def main():
     print(paint_fence(3, 3))
 
     print(paint_house2([[1, 5, 3], [2, 9, 4]]))
+
+    print(edit_distance('abcfghijklabc', 'dabcefghijklabc'))
 
 
 if __name__ == '__main__':
