@@ -36,7 +36,6 @@
 
 5. If all else fails, try sketching out the entire solution, using imagination to fill out the unknown parts. For example,
 
-   - Hypothesize an unknown data structure whose existence would help greatly, and then find (or code) the corresponding data structure.
+   - Hypothesize an unknown data structure whose existence would help greatly, and then find (or code) it.
    - Hypothesize an unknown piece of information whose existence would help greatly, and then try to derive it.
-
    - Failing the above, rinse and repeat with a different heuristic.
