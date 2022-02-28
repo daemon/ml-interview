@@ -26,6 +26,7 @@
 
 3. Do any heuristics help?
 
+   - Is there a direct, imperative-esque solution?
    - Is there an analogous problem?
    - Is the problem easier in a more general form?
    - Is it easier to iteratively refine a brute-force solution?
