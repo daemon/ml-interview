@@ -1,12 +1,29 @@
 # Problem Solving for Programming
 
+## Common Logic Building Blocks
+
+A nonexhaustive list of common building blocks:
+- Monotonic stack
+- Rabin-Karp
+- Topological sort
+- Dijkstra's algorithm
+- BFS and DFS
+- Longest increasing subsequence (O(n log n))
+- Multipointer iteration and traversal
+- Floyd-Warshall
+- Tries, linked lists, hash tables, sets, heaps, deques, BSTs, balanced trees, etc
+- RadixSort
+- Decomposing compound types (e.g., n intervals into 2 * n points)
+- Aggregating types (e.g., 2 * n points into n intervals)
+- Modulus tricks
+- Combinatorial identities (e.g., hockey stick identity, Pascal's identity)
+
 ## Exploratory Practice Method
 
 1. Solve the problem.
 2. If step 1 succeeds, you are done. Otherwise, troubleshoot (see below).
 3. Once you solve the problem, study and understand the best solutions for it.
 4. If it's an important question, relate it to other questions, extend the solution, and memorize the solution structure.
-
 
 
 ### Troubleshooting
