@@ -13,6 +13,8 @@ A nonexhaustive list of common building blocks:
 - Floyd-Warshall
 - Tries, linked lists, hash tables, sets, heaps, deques, BSTs, balanced trees, etc
 - RadixSort
+- Binary search for answer validation
+- Algorithms and data structures over abstractions (e.g., split array largest sum, bus routes)
 - Decomposing compound types (e.g., n intervals into 2 * n points)
 - Aggregating types (e.g., 2 * n points into n intervals)
 - Modulus tricks
